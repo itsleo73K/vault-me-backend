@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VAULT ME</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+            color: #fafafa;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-link {
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(225, 29, 72, 0.1);
+            color: #e11d48;
+        }
+
+        .active-link {
+            background: rgba(225, 29, 72, 0.1);
+            color: #e11d48;
+            border-right: 3px solid #e11d48;
+        }
+
+        /* Animación para el badge de "En Vivo" */
+        .live-dot {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 1;
+            }
+
+            70% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen">
+
+    <aside class="hidden lg:flex flex-col w-72 h-screen sticky top-0 border-r border-white/5 bg-[#09090b] p-6 z-40">
+        <div class="flex items-center gap-2 mb-10">
+            <div class="w-10 h-10 bg-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-rose-600/20">
+                <i class="fas fa-shield-alt text-white"></i>
+            </div>
+            <span class="font-black tracking-tighter text-2xl uppercase italic">VAULT <span
+                    class="text-rose-600">ME</span></span>
+        </div>
+
+        <nav class="flex-grow space-y-1">
+            <p class="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-4 ml-2">Explorar</p>
+            <a href="index.html" class="flex items-center gap-3 p-3 text-sm font-semibold active-link">
+                <i class="fas fa-th-large w-5 text-center"></i> Catálogo
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 text-sm font-semibold sidebar-link text-zinc-400">
+                <i class="fas fa-fire w-5 text-center"></i> Tendencias
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 text-sm font-semibold sidebar-link text-zinc-400">
+                <i class="fas fa-star w-5 text-center"></i> Novedades
+            </a>
+
+            <p class="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mt-8 mb-4 ml-2">Membresía</p>
+            <a href="registro.html"
+                class="flex items-center gap-3 p-3 text-sm font-bold text-rose-500 hover:bg-rose-500/5 rounded-xl transition">
+                <i class="fas fa-crown w-5 text-center"></i> Suscribirse VIP
+            </a>
+            <a href="detalle.html" class="flex items-center gap-3 p-3 text-sm font-semibold sidebar-link text-zinc-400">
+                <i class="fas fa-unlock w-5 text-center"></i> Desbloqueos
+            </a>
+        </nav>
+
+        <div class="mt-auto glass p-4 rounded-2xl border border-white/5">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="relative">
+                    <div class="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700"></div>
+                    <div
+                        class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-zinc-600 rounded-full border-2 border-[#09090b]">
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-white">Invitado</p>
+                    <p class="text-[10px] text-zinc-500 font-medium">Nivel: Free</p>
+                </div>
+            </div>
+            <a href="registro.html"
+                class="block text-center text-[10px] font-black py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition uppercase tracking-widest">
+                Login / Registro
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-grow min-h-screen">
+
+        <header class="glass sticky top-0 z-50 p-4 lg:px-10 flex justify-between items-center">
+            <div class="lg:hidden flex items-center gap-2">
+                <span class="font-black italic text-xl">V<span class="text-rose-600">M</span></span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="live-dot absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-600"></span>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">3,492 online</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <i class="fas fa-search text-zinc-400 cursor-pointer hover:text-white transition"></i>
+                <a href="registro.html"
+                    class="text-xs font-black bg-rose-600 px-4 py-2 rounded-lg hover:bg-rose-700 transition shadow-lg shadow-rose-600/20 uppercase tracking-widest">Upgrade</a>
+            </div>
+        </header>
+
+        <div class="p-6 lg:p-10 max-w-7xl mx-auto">
+
+            <section class="relative w-full h-56 md:h-80 rounded-[2.5rem] overflow-hidden mb-12 border border-white/5">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200"
+                    class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#09090b] via-[#09090b]/40 to-transparent"></div>
+
+                <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
+                    <span
+                        class="bg-rose-600 text-[10px] font-black px-3 py-1 rounded-full mb-4 w-fit uppercase tracking-[0.2em]">Destacado
+                        de hoy</span>
+                    <h1 class="text-3xl md:text-5xl font-black uppercase italic leading-none mb-4 tracking-tighter">
+                        Acceso Total <br><span class="text-rose-600">Vault Me 2026</span>
+                    </h1>
+                    <p class="text-zinc-400 text-xs md:text-base max-w-md mb-6 font-medium italic">
+                        Desbloquea instantáneamente toda la base de datos de contenido privado con un solo pago.
+                    </p>
+                    <a href="detalle.html"
+                        class="bg-white text-black px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all w-fit">
+                        Ver Colección
+                    </a>
+                </div>
+            </section>
+
+            <div class="flex gap-3 mb-8 overflow-x-auto pb-2 no-scrollbar">
+                <button
+                    class="px-6 py-2 bg-rose-600 text-white text-[10px] font-black rounded-full uppercase tracking-widest">Todos</button>
+                <button
+                    class="px-6 py-2 glass text-zinc-400 text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-white/5 transition">Videos
+                    HD</button>
+                <button
+                    class="px-6 py-2 glass text-zinc-400 text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-white/5 transition">Sesiones</button>
+                <button
+                    class="px-6 py-2 glass text-zinc-400 text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-white/5 transition">Recientes</button>
+            </div>
+
+            <div id="main-grid" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div
+                    class="group relative bg-zinc-900/50 rounded-3xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-rose-500/50">
+                    <div class="aspect-[3/4] relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=500"
+                            class="w-full h-full object-cover blur-lg opacity-30 transition duration-700 group-hover:scale-110">
+
+                        <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                            <div
+                                class="w-12 h-12 bg-rose-600/10 rounded-full flex items-center justify-center border border-rose-500/30 mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-lock text-rose-500"></i>
+                            </div>
+                            <h3 class="text-xs font-black uppercase tracking-tighter text-white mb-1">Set Privado #04
+                            </h3>
+                            <p class="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">12 Items • 4K</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-black/20">
+                        <a href="detalle.html"
+                            class="block w-full py-3 bg-white hover:bg-rose-600 text-black hover:text-white text-center text-[10px] font-black rounded-xl transition uppercase tracking-[0.2em]">Desbloquear</a>
+                    </div>
+                </div>
+
+                <script>
+                    const grid = document.getElementById('main-grid');
+                    const card = grid.innerHTML;
+                    for (let i = 0; i < 7; i++) {
+                        grid.innerHTML += card;
+                    }
+                </script>
+            </div>
+        </div>
+
+        <footer class="p-10 border-t border-white/5 text-center mt-20">
+            <p class="text-[10px] text-zinc-600 uppercase tracking-widest font-bold">
+                © 2026 Vault Me • Acceso para Mayores de Edad
+            </p>
+        </footer>
+    </main>
+
+</body>
+
+</html>
