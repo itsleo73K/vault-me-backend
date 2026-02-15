@@ -42,8 +42,17 @@ app.use('/api/', limiter);
 
 // CORS - permitir peticiones del frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true
+  origin: [
+    'https://lauxx.xyz',
+    'http://lauxx.xyz',
+    'https://www.lauxx.xyz',
+    'http://www.lauxx.xyz',
+    'http://localhost:5000',
+    'http://localhost:3000'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Body parser

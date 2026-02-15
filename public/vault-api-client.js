@@ -2,7 +2,7 @@
 // Copia este archivo en tu carpeta de frontend
 
 class VaultMeAPI {
-  constructor(baseURL = 'http://localhost:5000/api') {
+  constructor(baseURL = 'https://vault-me-backend.onrender.com/api') {
     this.baseURL = baseURL;
     this.token = localStorage.getItem('vault_token');
   }
